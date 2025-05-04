@@ -1,0 +1,63 @@
+version: "1.0"
+projectName: "my-project"
+githubToken: "" # Set empty to use GITHUB_TOKEN env var
+syncInterval: "0 0 * * *" # Daily at midnight
+notifyOnly: false # Generate PRs automatically
+
+items:
+  - name: "logger"
+    description: "Logging utility package from main repository"
+    source:
+      owner: "your-org"
+      repo: "common-utils"
+      path: "pkg/logger/logger.go"
+      branch: "main"
+    target:
+      path: "internal/logger/logger.go"
+      type: "file"
+
+  - name: "json-parser-function"
+    description: "JSON parsing function only"
+    source:
+      owner: "your-org"
+      repo: "parsers"
+      path: "json/parser.go"
+      branch: "stable"
+    target:
+      path: "pkg/parsing/parser.go"
+      type: "function"
+      language: "go"
+      function: "ParseJSON"
+
+  - name: "http-utils-directory"
+    description: "HTTP utility functions directory"
+    source:
+      owner: "your-org"
+      repo: "http-utils"
+      path: "utils/"
+      branch: "v2"
+    target:
+      path: "pkg/http/"
+      type: "directory"
+
+  - name: "specific-revision"
+    description: "Pin to specific commit hash"
+    source:
+      owner: "your-org"
+      repo: "constants"
+      path: "consts.go"
+      revision: "abc123def456" # Specific revision hash
+    target:
+      path: "internal/constants/consts.go"
+      type: "file"
+      
+  - name: "disabled-sync"
+    description: "Temporarily disabled sync"
+    disabled: true
+    source:
+      owner: "your-org"
+      repo: "experimental"
+      path: "feature/new.go"
+    target:
+      path: "experimental/feature.go"
+      type: "file"
