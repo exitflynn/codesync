@@ -29,10 +29,10 @@ Unlike package managers or tools like Dependabot that track formal dependencies,
 
 ```bash
 # Install via Go
-go install github.com/yourusername/codesync/cmd/codesync@latest
+go install github.com/exitflynn/codesync/cmd/codesync@latest
 
 # Or download binary releases from GitHub
-curl -L https://github.com/yourusername/codesync/releases/latest/download/codesync-$(uname -s)-$(uname -m) -o codesync
+curl -L https://github.com/exitflynn/codesync/releases/latest/download/codesync-$(uname -s)-$(uname -m) -o codesync
 chmod +x codesync
 ```
 
