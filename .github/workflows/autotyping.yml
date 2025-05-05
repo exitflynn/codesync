@@ -1,0 +1,24 @@
+name: Autotyping
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  autotyping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install autotyping
+        run: pip install autotyping
+        
+      - name: Run autotyping
+        run: python -m autotyping . --safe 
